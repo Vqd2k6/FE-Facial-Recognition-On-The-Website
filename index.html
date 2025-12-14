@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Hệ Thống FaceID</title>
+    <!-- Import Font chữ Roboto và Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<!-- Sử dụng class bg-uth-bg đã cấu hình trong Tailwind, fallback là màu xám nhẹ -->
+<body class="flex items-center justify-center min-h-screen bg-gray-100 bg-uth-bg bg-cover bg-center bg-no-repeat font-roboto p-4">
+
+<!-- Container chính (Card) -->
+<div class="bg-white w-full max-w-[450px] rounded-xl shadow-2xl p-8 text-center relative overflow-hidden">
+
+    <!-- Logo Trường/Tổ chức -->
+    <div class="mb-6 flex justify-center">
+        <!-- Đảm bảo file ảnh tồn tại trong public/images/ -->
+        <img src="/images/logo_uth.png" alt="Logo UTH" class="h-20 object-contain">
+    </div>
+
+    <!-- Tiêu đề -->
+    <h2 class="text-brand-red text-2xl font-bold uppercase mb-6 tracking-wide">
+        Đăng Nhập Hệ Thống
+    </h2>
+
+    <form id="loginForm" class="text-left space-y-5">
+        <!-- Nhập Tên tài khoản -->
+        <div>
+            <label for="username" class="sr-only">Tên tài khoản</label>
+            <div class="relative">
+                <span class="material-icons absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">person</span>
+                <input type="text" id="username"
+                       class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all placeholder-gray-500"
+                       placeholder="Tên tài khoản" required autocomplete="username">
+            </div>
+        </div>
+
+        <!-- Nhập Mật khẩu -->
+        <div class="relative">
+            <label for="password" class="sr-only">Mật khẩu</label>
+            <div class="relative">
+                <span class="material-icons absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">lock</span>
+                <input type="password" id="password"
+                       class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all placeholder-gray-500"
+                       placeholder="Mật khẩu" required autocomplete="current-password">
+                <!-- Nút ẩn hiện mật khẩu -->
+                <span id="btnTogglePass" class="material-icons absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer hover:text-brand-primary select-none">
+                        visibility
+                    </span>
+            </div>
+        </div>
+
+        <!-- Khu vực Logic Camera -->
+        <div class="mt-4">
+            <!-- 1. Nút Bật Camera (Hiện mặc định) -->
+            <button type="button" id="btnStartCamera" disabled
+                    class="w-full py-3 px-4 border-2 border-dashed border-gray-300 bg-gray-100 text-gray-400 font-bold rounded-lg cursor-not-allowed transition-all flex items-center justify-center gap-2">
+                <span class="material-icons text-xl">face</span> Xác thực khuôn mặt
+            </button>
+
+            <!-- 2. Khung Camera (Ẩn mặc định) -->
+            <div id="cameraSection" class="hidden relative w-full h-[280px] bg-black rounded-lg overflow-hidden border border-gray-300 shadow-inner group">
+                <!-- Video gốc -->
+                <video id="video" class="absolute top-0 left-0 w-full h-full object-cover transform scale-x-[-1]" autoplay muted playsinline></video>
+                <!-- Canvas vẽ khung nhận diện -->
+                <canvas id="canvas" class="absolute top-0 left-0 w-full h-full transform scale-x-[-1]"></canvas>
+
+                <!-- Text trạng thái loading -->
+                <div id="loadingText" class="absolute bottom-0 w-full bg-black/60 text-white text-sm py-2 text-center font-medium backdrop-blur-sm">
+                    Đang khởi động hệ thống...
+                </div>
+            </div>
+        </div>
+
+        <!-- Nút Submit Chính -->
+        <button type="submit" id="btnLogin"
+                class="w-full bg-[#80cbc4] text-white font-bold text-base py-3 rounded-lg shadow-md cursor-not-allowed transition-all uppercase tracking-wide mt-6 flex items-center justify-center gap-2" disabled>
+            Đăng Nhập
+        </button>
+    </form>
+
+    <!-- Footer Link -->
+    <div class="mt-6 text-sm">
+        <span class="text-gray-500">Chưa có tài khoản?</span>
+        <a href="/register.html" class="text-brand-primary font-bold hover:underline ml-1">Đăng ký ngay</a>
+    </div>
+</div>
+
+<!-- Script Module chính -->
+<script type="module" src="/src/logic/loginPage.ts"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* Import Fonts & Icons */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Components Layer */
+@layer components {
+    /* Style chuẩn cho các ô input */
+    .input-field {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 transition-all focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary placeholder-gray-500;
+    }
+}
+
+/* Ẩn thanh cuộn (Scrollbar) để giao diện sạch hơn */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}

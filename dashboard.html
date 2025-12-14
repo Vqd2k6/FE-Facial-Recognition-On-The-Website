@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hệ Thống Quản Lý</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body class="bg-gray-50 font-roboto">
+
+<!-- Navbar -->
+<nav class="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+        <img src="/images/logo_uth.png" alt="Logo" class="h-10">
+        <span class="font-bold text-gray-700 text-lg">System Dashboard</span>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center text-brand-primary font-bold">
+                A
+            </div>
+            <span class="text-sm font-medium text-gray-600">Administrator</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="flex items-center justify-center h-[calc(100vh-80px)]">
+    <div class="text-center p-12 bg-white rounded-xl shadow-lg border border-gray-100 max-w-lg w-full">
+        <!-- Icon thành công -->
+        <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="material-icons text-5xl">verified_user</span>
+        </div>
+
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Đăng Nhập Thành Công</h1>
+        <p class="text-gray-500 text-lg mb-8">Chào mừng bạn đã truy cập vào hệ thống an toàn.</p>
+
+        <div class="space-y-3">
+            <button class="w-full py-3 bg-brand-primary text-white rounded-lg font-bold hover:bg-teal-700 transition-colors flex items-center justify-center gap-2">
+                <span class="material-icons">dashboard</span> Vào Trang Quản Trị
+            </button>
+            <a href="/" class="block w-full py-3 border border-gray-300 text-gray-600 rounded-lg font-bold hover:bg-gray-50 transition-colors">
+                Đăng xuất
+            </a>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

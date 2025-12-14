@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    // Phiên bản ECMAScript mục tiêu
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+
+    // Thư viện hỗ trợ (DOM để thao tác HTML, ES2022 cho cú pháp mới)
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // Bỏ qua kiểm tra type của các file thư viện (giúp build nhanh hơn)
+    "skipLibCheck": true,
+
+    /* Bundler mode - Cấu hình cho Vite */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Linting - Các quy tắc kiểm tra code nghiêm ngặt */
+    "strict": true,                // Bật chế độ nghiêm ngặt nhất
+    "noUnusedLocals": true,        // Báo lỗi nếu khai báo biến mà không dùng
+    "noUnusedParameters": true,    // Báo lỗi nếu tham số hàm thừa
+    "noFallthroughCasesInSwitch": true, // Kiểm tra logic switch-case
+
+    // Hỗ trợ import types từ Vite
+    "types": ["vite/client"]
+  },
+  // Chỉ định thư mục source code
+  "include": ["src"]
+}
